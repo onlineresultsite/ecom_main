@@ -3,10 +3,11 @@
 # Update the settings.py file
 sed -i 's/\[]/\["13.53.132.185"]/' /home/ubuntu/ecom_main/ecom/settings.py
 
-# Navigate to the directory containing manage.py
-cd /home/ubuntu/ecom_main/
+# Navigate to the directory containing manage.p
 
 # Run Django management commands
+source /home/ubuntu/env/bin/activate
+cd /home/ubuntu/ecom_main/
 python3 manage.py migrate
 python3 manage.py makemigrations
 python3 manage.py collectstatic --noinput
