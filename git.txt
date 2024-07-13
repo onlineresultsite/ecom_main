@@ -1,0 +1,7 @@
+step 1: create a folder in pc
+step 2: copy repo https link and create a folder and using bash run below command with that url
+step 3: git clone https://github.com/yourusername/your-repository-name.git
+step 4: git add.
+step 5: git status
+step 6: git commit "message"
+step 7: git push
