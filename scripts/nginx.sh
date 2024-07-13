@@ -5,7 +5,7 @@ sudo systemctl daemon-reload
 sudo rm -f /etc/nginx/sites-enabled/default
 
 sudo cp /home/ubuntu/ecom_main/nginx/nginx.conf /etc/nginx/sites-available/ecom
-sudo ln -s /etc/nginx/sites-available/ecom /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/ecom/etc/nginx/sites-enabled/
 #sudo ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled
 #sudo nginx -t
 sudo gpasswd -a www-data ubuntu
