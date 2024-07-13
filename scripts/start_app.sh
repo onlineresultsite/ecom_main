@@ -1,6 +1,6 @@
 #!/usr/bin/bash 
 
-sed -i 's/\[]/\["16.170.205.106"]/' /home/ubuntu/ecom_main/ecom/settings.py
+sed -i 's/\[]/\["13.53.132.185"]/' /home/ubuntu/ecom_main/ecom/settings.py
 
 python manage.py migrate 
 python manage.py makemigrations     
