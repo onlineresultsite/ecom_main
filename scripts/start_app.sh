@@ -27,7 +27,7 @@ cd /home/ubuntu/ecom_main/
 sudo service gunicorn restart
 cd /home/ubuntu/ecom_main/
 sudo service nginx restart
-
+cd /home/ubuntu/ecom_main/
 #sudo tail -f /var/log/nginx/error.log
 #sudo systemctl reload nginx
 #sudo tail -f /var/log/nginx/error.log
