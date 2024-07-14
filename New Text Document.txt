@@ -1,0 +1,77 @@
+It looks like your application is serving static files and media files correctly, but there might still be issues related to database permissions or other aspects of your Django app. The initial issue was regarding database write permissions, so let's ensure that everything related to database permissions and configurations is correctly set up.
+
+Steps to Diagnose and Fix the Issue
+Ensure Correct Database Permissions:
+Make sure that the db.sqlite3 file and the directory it's in have the correct permissions and ownership.
+
+bash
+Copy code
+sudo chown ubuntu:ubuntu /home/ubuntu/ecom_main/db.sqlite3
+sudo chmod 664 /home/ubuntu/ecom_main/db.sqlite3
+sudo chown -R ubuntu:ubuntu /home/ubuntu/ecom_main
+sudo chmod 775 /home/ubuntu/ecom_main
+Check Database Directory Permissions:
+Sometimes the directory containing the database file needs proper permissions:
+
+bash
+Copy code
+sudo chown -R ubuntu:ubuntu /home/ubuntu/ecom_main
+sudo chmod -R 775 /home/ubuntu/ecom_main
+Restart the Django Application:
+After ensuring the permissions are set correctly, restart your Django application:
+
+bash
+Copy code
+cd /home/ubuntu/ecom_main
+source /home/ubuntu/env/bin/activate
+python manage.py runserver 0.0.0.0:8000
+Check the Database Path in Settings:
+Ensure that the database path in your Django settings is correct and points to the writable location:
+
+python
+Copy code
+# settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+Logs for Detailed Errors:
+Check the logs for any other detailed errors that might give you more insight into what might be going wrong. You can find the logs in the directory where your application is running or use a log management tool.
+
+Example Logging and Diagnostic Script
+Here's a simple bash script you can use to check permissions and ownership:
+
+bash
+Copy code
+#!/bin/bash
+
+PROJECT_DIR="/home/ubuntu/ecom_main"
+DB_FILE="$PROJECT_DIR/db.sqlite3"
+
+# Log start time
+echo "Diagnostic script started at $(date)"
+
+# Check and set permissions for the project directory
+echo "Setting permissions for project directory..."
+sudo chown -R ubuntu:ubuntu $PROJECT_DIR
+sudo chmod -R 775 $PROJECT_DIR
+
+# Check and set permissions for the database file
+if [ -f $DB_FILE ]; then
+  echo "Setting permissions for database file..."
+  sudo chown ubuntu:ubuntu $DB_FILE
+  sudo chmod 664 $DB_FILE
+else
+  echo "Database file not found!"
+fi
+
+# Log end time
+echo "Diagnostic script completed at $(date)"
+Save this script as diagnose_permissions.sh, make it executable, and run it:
+
+bash
+Copy code
+chmod +x diagnose_permissions.sh
+./diagnose_permissions.sh

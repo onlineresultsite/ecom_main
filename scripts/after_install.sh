@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/
 
 echo "Pull Finished"
 sudo systemctl daemon-reload
