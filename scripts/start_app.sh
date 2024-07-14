@@ -22,5 +22,5 @@ sudo service nginx restart
 # Check the status
 #systemctl status gunicorn
 # Restart:
-#systemctl restart gunicorn
+
 
