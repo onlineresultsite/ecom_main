@@ -9,7 +9,6 @@ source /home/ubuntu/env/bin/activate
 python manage.py migrate 
 python manage.py makemigrations     
 python manage.py collectstatic --noinput
-python manage.py runserver 0.0.0.0:8000
 sudo service gunicorn restart
 sudo service nginx restart
 python manage.py runserver 0.0.0.0:8000
