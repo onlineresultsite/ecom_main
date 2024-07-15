@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh root@134.209.208.182 <<EOF
+ssh root@172.31.47.46 <<EOF
   cd ecom_main
   git pull 
   source env/bin/activate
