@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update the settings.py file
-sed -i 's/\[]/\["13.53.132.185"]/' /home/ubuntu/ecom_main/ecom/settings.py
+sed -i 's/\[]/\["16.171.141.26"]/' /home/ubuntu/ecom_main/ecom/settings.py
 
 cd /home/ubuntu/ecom_main
 source /home/ubuntu/env/bin/activate
